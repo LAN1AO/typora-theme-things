@@ -90,6 +90,21 @@ content {
   }
 }
 
+/* Typora centers #write inside the editor pane, not the whole window. When the
+   outline sidebar is pinned, shift the column left by half the sidebar width so
+   it is centered in the window too. The shift never exceeds the available
+   margin, so the text cannot slide under the sidebar on narrow windows. */
+html.pin-outline #write,
+body.pin-outline #write {
+  left: calc(
+    -1 *
+      min(
+        calc(var(--sidebar-width) / 2),
+        max(0px, calc((100% - var(--things-content-width)) / 2))
+      )
+  );
+}
+
 /* --------------------------------------------------------------------------
    Headings
    Things uses dark H1/H2, blue H3, amber H4, red H5 and muted H6.
