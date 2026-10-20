@@ -76,6 +76,9 @@
     "SFMono-Regular", Menlo, Consolas, "Liberation Mono", "Courier New",
     monospace;
 
+  /* Writing column: 70% of the editor area (the sidebar is outside #write). */
+  --things-content-width: 70%;
+
   /* Typora application variables */
   --bg-color: var(--things-bg);
   --text-color: var(--things-text);
