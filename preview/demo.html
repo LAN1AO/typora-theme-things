@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Things for Typora — preview</title>
+<script>
+  (function () {
+    var theme = new URLSearchParams(location.search).get("theme") === "dark" ? "dark" : "light";
+    document.write('<link rel="stylesheet" href="../themes/things-' + theme + '.css">');
+    document.write('<link rel="stylesheet" href="preview.css">');
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+</head>
+<body>
+<article id="write">
+
+  <h1>The Almanack of Naval Ravikant</h1>
+  <p class="preview-meta">A guide to wealth and happiness · 2026</p>
+
+  <p><img src="assets/cover.png" alt="The Almanack of Naval Ravikant" width="190"></p>
+
+  <h2>Metadata</h2>
+  <ul>
+    <li><strong>Author:</strong> <a href="#">Naval Ravikant</a>, <a href="#">Tim Ferriss</a>, <a href="#">Eric Jorgenson</a></li>
+    <li><strong>Full Title:</strong> The Almanack of Naval Ravikant</li>
+    <li><strong>Tags:</strong> <a class="md-tag" href="#">books</a> <a class="md-tag" href="#">favorite</a> <a class="md-tag" href="#">technology</a></li>
+  </ul>
+
+  <h2>Part I: Wealth</h2>
+
+  <blockquote>
+    <p>“Making money is not a thing you do—it’s a skill you learn.”</p>
+  </blockquote>
+
+  <ul>
+    <li><strong>Seek wealth, not money or status.</strong> Wealth is having assets that earn while you sleep. Money is how we transfer time and wealth. Status is your place in the social hierarchy.</li>
+    <li>Ignore people playing status games. They gain status by attacking people playing wealth creation games.</li>
+  </ul>
+
+  <h3>Understand How Wealth Is Created</h3>
+
+  <p>
+    Getting rich is about knowing <em>what to do</em>, <strong>who to do it with</strong>, and <strong><em>when to do it</em></strong>.
+    The tweetstorm tries to be information-dense, very concise, high-impact, and timeless.
+    It has all the information and principles, so if you absorb these and you work hard over ten years, you’ll get what you want.<sup class="md-footnote"><a href="#fn1" id="fnref1">1</a></sup>
+  </p>
+
+  <p>
+    <mark>Play long-term games with long-term people.</mark> Pick an industry where you can play long-term games with long-term people.
+    All the returns in life, whether in wealth, relationships, or knowledge, come from compound interest.
+  </p>
+
+  <h4>Specific Knowledge</h4>
+  <p>
+    Specific knowledge is found by pursuing your genuine curiosity and passion rather than whatever is hot right now.
+    It is often highly technical or creative, and it cannot be outsourced or automated.
+  </p>
+
+  <h5>Judgment</h5>
+  <p>
+    Leverage is a force multiplier for your judgment. Code and media are permissionless leverage — they work while you sleep.
+  </p>
+
+  <h6>Accountability</h6>
+  <p>
+    Embrace accountability and take business risks under your own name. Society will reward you with responsibility, equity, and leverage.
+  </p>
+
+  <h2>A Small TypeScript Example</h2>
+
+  <pre class="md-fences md-end-block" lang="ts"><div class="CodeMirror cm-s-inner"><div class="CodeMirror-scroll"><div class="CodeMirror-sizer"><div class="CodeMirror-lines"><div class="CodeMirror-code"><div class="CodeMirror-line"><span class="cm-keyword">type</span> <span class="cm-def">Leverage</span> <span class="cm-operator">=</span> <span class="cm-string">"code"</span> <span class="cm-operator">|</span> <span class="cm-string">"media"</span><span class="cm-operator">;</span></div><div class="CodeMirror-line"><br></div><div class="CodeMirror-line"><span class="cm-keyword">const</span> <span class="cm-variable">build</span> <span class="cm-operator">=</span> <span class="cm-operator">(</span><span class="cm-variable">kind</span><span class="cm-operator">:</span> <span class="cm-type">Leverage</span><span class="cm-operator">)</span> <span class="cm-operator">=&gt;</span> <span class="cm-operator">{</span></div><div class="CodeMirror-line">  <span class="cm-comment">// Permissionless leverage, compounded daily.</span></div><div class="CodeMirror-line">  <span class="cm-keyword">return</span> <span class="cm-property">kind</span> <span class="cm-operator">===</span> <span class="cm-string">"code"</span> <span class="cm-operator">?</span> <span class="cm-number">24</span> <span class="cm-operator">:</span> <span class="cm-number">24</span><span class="cm-operator">;</span></div><div class="CodeMirror-line"><span class="cm-operator">}</span><span class="cm-operator">;</span></div></div></div></div></div></div></pre>
+
+  <h2>Reading Notes</h2>
+
+  <table>
+    <thead>
+      <tr><th>Idea</th><th>Leverage</th><th>Compounds?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Specific knowledge</td><td>High</td><td>Yes</td></tr>
+      <tr><td>Code &amp; media</td><td>Permissionless</td><td>Yes</td></tr>
+      <tr><td>Status games</td><td>Zero-sum</td><td>No</td></tr>
+    </tbody>
+  </table>
+
+  <ul class="task-list">
+    <li class="md-task-list-item task-list-item"><input type="checkbox" checked> Read the whole book</li>
+    <li class="md-task-list-item task-list-item"><input type="checkbox" checked> Build a small product in public</li>
+    <li class="md-task-list-item task-list-item"><input type="checkbox"> Write one page every morning</li>
+  </ul>
+
+  <hr>
+
+  <p>
+    中文排版检查：财富不是零和游戏，代码与媒体的杠杆会在你睡觉时继续工作。
+  </p>
+
+  <div class="footnotes">
+    <hr>
+    <ol>
+      <li id="fn1">A footnote rendered with the Things palette. <a href="#fnref1">↩</a></li>
+    </ol>
+  </div>
+
+</article>
+</body>
+</html>

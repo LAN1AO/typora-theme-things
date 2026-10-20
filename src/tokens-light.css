@@ -1,0 +1,116 @@
+/* ==========================================================================
+   Things for Typora — light palette
+   Adapted from Obsidian Things v2.2.4 by Colin Eckert (MIT)
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --things-bg: #ffffff;
+  --things-sidebar-bg: #f6f7f8;
+  --things-menu-bg: #ffffff;
+  --things-hover: #eef0f3;
+  --things-active: #e2e5e9;
+  --things-border: #ebedf0;
+  --things-border-strong: #d8dde3;
+  --things-scrollbar: rgba(34, 34, 34, 0.16);
+  --things-scrollbar-hover: rgba(34, 34, 34, 0.28);
+
+  /* Text */
+  --things-text: #222222;
+  --things-text-muted: #555e68;
+  --things-text-faint: #a2aab3;
+  --things-text-formatted: #949da8;
+
+  /* Accent and the Things palette */
+  --things-accent: #4c8ce6;
+  --things-accent-hover: #2f7fdd;
+  --things-blue: #2e80f2;
+  --things-pink: #ff82b2;
+  --things-green: #3eb4bf;
+  --things-yellow: #e5b567;
+  --things-orange: #e87d3e;
+  --things-red: #e83e3e;
+  --things-purple: #9e86c8;
+
+  /* Inline elements */
+  --things-code-inline-bg: #eceef1;
+  --things-code-block-bg: #f0f2f5;
+  --things-code-border: #e3e7ec;
+  --things-table-stripe: #f8f9fa;
+  --things-table-head: #f6f7f8;
+  --things-quote: #3eb4bf;
+  --things-quote-border: rgba(62, 180, 191, 0.45);
+  --things-checkbox-border: #b7bec7;
+  --things-mark: rgba(255, 208, 0, 0.4);
+  --things-selection: rgba(76, 140, 230, 0.25);
+  --things-search: rgba(255, 208, 0, 0.5);
+  --things-tag-bg: #bde1d3;
+  --things-tag-text: #1d694b;
+
+  /* Shadows */
+  --things-shadow-s: 0 1px 2px rgba(0, 0, 0, 0.028),
+    0 3.4px 6.7px rgba(0, 0, 0, 0.042), 0 15px 30px rgba(0, 0, 0, 0.07);
+  --things-shadow-m: 0 2px 8px rgba(0, 0, 0, 0.08),
+    0 12px 28px rgba(0, 0, 0, 0.1);
+
+  /* Syntax — One Dark, light variant */
+  --things-atom-comment: #8a9099;
+  --things-atom-gray-1: #383a42;
+  --things-atom-gray-2: #383a42;
+  --things-atom-red: #e75545;
+  --things-atom-green: #4ea24c;
+  --things-atom-blue: #3d74f6;
+  --things-atom-purple: #a625a4;
+  --things-atom-aqua: #0084bc;
+  --things-atom-yellow: #e35649;
+  --things-atom-orange: #986800;
+
+  /* Typography */
+  --things-font-text: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Inter", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC",
+    "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  --things-font-mono: "JetBrains Mono", "Cascadia Code", "Fira Code",
+    "SFMono-Regular", Menlo, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+
+  /* Typora application variables */
+  --bg-color: var(--things-bg);
+  --text-color: var(--things-text);
+  --side-bar-bg-color: var(--things-sidebar-bg);
+  --control-text-color: var(--things-text-muted);
+  --control-text-hover-color: var(--things-text);
+  --window-border: 1px solid var(--things-border);
+  --border-color: var(--things-border);
+  --panel-border-color: var(--things-border);
+  --table-border-color: var(--things-border);
+  --active-file-bg-color: var(--things-active);
+  --active-file-text-color: var(--things-text);
+  --active-file-border-color: var(--things-accent);
+  --item-hover-bg-color: var(--things-hover);
+  --item-hover-text-color: var(--things-text);
+  --primary-color: var(--things-accent);
+  --primary-btn-border-color: var(--things-accent);
+  --primary-btn-text-color: #ffffff;
+  --select-text-bg-color: var(--things-selection);
+  --select-text-font-color: var(--things-text);
+  --search-select-bg-color: var(--things-search);
+  --search-select-text-color: var(--things-text);
+  --rawblock-edit-panel-bd: var(--things-code-border);
+  --monospace: var(--things-font-mono);
+  --md-char-color: var(--things-text-faint);
+  --meta-content-color: var(--things-text-formatted);
+  --blur-text-color: var(--things-text-faint);
+  --heading-char-color: var(--things-text-faint);
+  --focus-ring-color: var(--things-accent);
+  --drag-placeholder-color: var(--things-border-strong);
+  --active-toggle-btn-color: var(--things-accent);
+  --side-bar-menu-active-tint: var(--things-hover);
+
+  /* Typora 1.x additive variables (harmless on 0.9.x) */
+  --code-block-bg-color: var(--things-code-block-bg);
+  --code-bg-color: var(--things-code-inline-bg);
+  --mark-bg-color: var(--things-mark);
+}

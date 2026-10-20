@@ -1,0 +1,79 @@
+/* Minimal Typora-like layout used only by preview/demo.html.
+   This keeps the preview reproducible without shipping Typora's own CSS. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+#write {
+  min-height: 100vh;
+}
+
+.md-fences {
+  display: block;
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+
+.CodeMirror {
+  height: auto;
+  font-family: var(--things-font-mono);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.CodeMirror-scroll {
+  height: auto;
+  overflow: hidden;
+}
+
+.CodeMirror-sizer {
+  position: relative;
+  min-height: 0 !important;
+}
+
+.CodeMirror-lines {
+  padding: 0;
+}
+
+.CodeMirror-code {
+  outline: none;
+}
+
+.CodeMirror pre {
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: transparent;
+  border: 0;
+}
+
+.CodeMirror-line {
+  display: block;
+  padding: 0;
+}
+
+.preview-meta {
+  margin-top: 0.35rem;
+  font-size: 0.86rem;
+  color: var(--things-text-faint);
+}

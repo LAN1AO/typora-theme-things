@@ -1,0 +1,1255 @@
+@charset "UTF-8";
+/*!
+ * Things for Typora v1.0.0
+ * A Typora port of Obsidian Things v2.2.4 by Colin Eckert.
+ * https://github.com/colineckert/obsidian-things
+ *
+ * Upstream theme: MIT © Colin Eckert
+ * Typora adaptation: MIT © 2026 Things for Typora contributors
+ *
+ * Light/dark palettes live in src/tokens-*.css, shared rules in src/base.css.
+ * Edit those files, then run `node build.mjs` — do not edit themes/*.css.
+ */
+
+/* ==========================================================================
+   Things for Typora — light palette
+   Adapted from Obsidian Things v2.2.4 by Colin Eckert (MIT)
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --things-bg: #ffffff;
+  --things-sidebar-bg: #f6f7f8;
+  --things-menu-bg: #ffffff;
+  --things-hover: #eef0f3;
+  --things-active: #e2e5e9;
+  --things-border: #ebedf0;
+  --things-border-strong: #d8dde3;
+  --things-scrollbar: rgba(34, 34, 34, 0.16);
+  --things-scrollbar-hover: rgba(34, 34, 34, 0.28);
+
+  /* Text */
+  --things-text: #222222;
+  --things-text-muted: #555e68;
+  --things-text-faint: #a2aab3;
+  --things-text-formatted: #949da8;
+
+  /* Accent and the Things palette */
+  --things-accent: #4c8ce6;
+  --things-accent-hover: #2f7fdd;
+  --things-blue: #2e80f2;
+  --things-pink: #ff82b2;
+  --things-green: #3eb4bf;
+  --things-yellow: #e5b567;
+  --things-orange: #e87d3e;
+  --things-red: #e83e3e;
+  --things-purple: #9e86c8;
+
+  /* Inline elements */
+  --things-code-inline-bg: #eceef1;
+  --things-code-block-bg: #f0f2f5;
+  --things-code-border: #e3e7ec;
+  --things-table-stripe: #f8f9fa;
+  --things-table-head: #f6f7f8;
+  --things-quote: #3eb4bf;
+  --things-quote-border: rgba(62, 180, 191, 0.45);
+  --things-checkbox-border: #b7bec7;
+  --things-mark: rgba(255, 208, 0, 0.4);
+  --things-selection: rgba(76, 140, 230, 0.25);
+  --things-search: rgba(255, 208, 0, 0.5);
+  --things-tag-bg: #bde1d3;
+  --things-tag-text: #1d694b;
+
+  /* Shadows */
+  --things-shadow-s: 0 1px 2px rgba(0, 0, 0, 0.028),
+    0 3.4px 6.7px rgba(0, 0, 0, 0.042), 0 15px 30px rgba(0, 0, 0, 0.07);
+  --things-shadow-m: 0 2px 8px rgba(0, 0, 0, 0.08),
+    0 12px 28px rgba(0, 0, 0, 0.1);
+
+  /* Syntax — One Dark, light variant */
+  --things-atom-comment: #8a9099;
+  --things-atom-gray-1: #383a42;
+  --things-atom-gray-2: #383a42;
+  --things-atom-red: #e75545;
+  --things-atom-green: #4ea24c;
+  --things-atom-blue: #3d74f6;
+  --things-atom-purple: #a625a4;
+  --things-atom-aqua: #0084bc;
+  --things-atom-yellow: #e35649;
+  --things-atom-orange: #986800;
+
+  /* Typography */
+  --things-font-text: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Inter", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC",
+    "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  --things-font-mono: "JetBrains Mono", "Cascadia Code", "Fira Code",
+    "SFMono-Regular", Menlo, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+
+  /* Typora application variables */
+  --bg-color: var(--things-bg);
+  --text-color: var(--things-text);
+  --side-bar-bg-color: var(--things-sidebar-bg);
+  --control-text-color: var(--things-text-muted);
+  --control-text-hover-color: var(--things-text);
+  --window-border: 1px solid var(--things-border);
+  --border-color: var(--things-border);
+  --panel-border-color: var(--things-border);
+  --table-border-color: var(--things-border);
+  --active-file-bg-color: var(--things-active);
+  --active-file-text-color: var(--things-text);
+  --active-file-border-color: var(--things-accent);
+  --item-hover-bg-color: var(--things-hover);
+  --item-hover-text-color: var(--things-text);
+  --primary-color: var(--things-accent);
+  --primary-btn-border-color: var(--things-accent);
+  --primary-btn-text-color: #ffffff;
+  --select-text-bg-color: var(--things-selection);
+  --select-text-font-color: var(--things-text);
+  --search-select-bg-color: var(--things-search);
+  --search-select-text-color: var(--things-text);
+  --rawblock-edit-panel-bd: var(--things-code-border);
+  --monospace: var(--things-font-mono);
+  --md-char-color: var(--things-text-faint);
+  --meta-content-color: var(--things-text-formatted);
+  --blur-text-color: var(--things-text-faint);
+  --heading-char-color: var(--things-text-faint);
+  --focus-ring-color: var(--things-accent);
+  --drag-placeholder-color: var(--things-border-strong);
+  --active-toggle-btn-color: var(--things-accent);
+  --side-bar-menu-active-tint: var(--things-hover);
+
+  /* Typora 1.x additive variables (harmless on 0.9.x) */
+  --code-block-bg-color: var(--things-code-block-bg);
+  --code-bg-color: var(--things-code-inline-bg);
+  --mark-bg-color: var(--things-mark);
+}
+
+
+/* ==========================================================================
+   Things for Typora — shared stylesheet
+   A Typora port of Obsidian Things v2.2.4 by Colin Eckert (MIT).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Typography assets
+   The bundled mono face is optional: if the `things` folder is not copied,
+   the stack below falls back to Cascadia Code, Consolas, etc.
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: local("JetBrains Mono"),
+    url("./things/JetBrainsMono-Regular.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local("JetBrains Mono Italic"),
+    url("./things/JetBrainsMono-Italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* --------------------------------------------------------------------------
+   Document
+   -------------------------------------------------------------------------- */
+
+html {
+  font-size: 16px;
+  background-color: var(--things-bg);
+  color: var(--things-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--things-font-text);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--things-text);
+  background-color: var(--things-bg);
+  font-variant-ligatures: none;
+}
+
+content {
+  background-color: var(--things-bg);
+}
+
+::selection,
+.in-text-selection {
+  background: var(--things-selection);
+  color: var(--things-text);
+  text-shadow: none;
+}
+
+#write {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 60px 120px;
+  font-family: var(--things-font-text);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--things-text);
+  caret-color: var(--things-accent);
+  word-wrap: break-word;
+}
+
+#write > *:first-child {
+  margin-top: 0 !important;
+}
+
+@media screen and (max-width: 760px) {
+  #write {
+    padding: 28px 24px 80px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Headings
+   Things uses dark H1/H2, blue H3, amber H4, red H5 and muted H6.
+   -------------------------------------------------------------------------- */
+
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+  position: relative;
+  font-family: var(--things-font-text);
+  cursor: text;
+  -webkit-font-feature-settings: "kern";
+  font-feature-settings: "kern";
+}
+
+#write h1 {
+  margin: 2.4rem 0 1rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.021em;
+  color: var(--things-text);
+}
+
+#write h2 {
+  margin: 2.3rem 0 0.9rem;
+  padding-bottom: 0.22rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.018em;
+  color: var(--things-text);
+  border-bottom: 2px solid var(--things-border);
+}
+
+#write h3 {
+  margin: 1.9rem 0 0.65rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--things-blue);
+}
+
+#write h4 {
+  margin: 1.7rem 0 0.55rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  color: var(--things-yellow);
+}
+
+#write h5 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--things-red);
+}
+
+#write h6 {
+  margin: 1.4rem 0 0.45rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--things-text-muted);
+}
+
+#write h1 code,
+#write h2 code,
+#write h3 code,
+#write h4 code,
+#write h5 code,
+#write h6 code,
+#write h1 tt,
+#write h2 tt,
+#write h3 tt,
+#write h4 tt,
+#write h5 tt,
+#write h6 tt {
+  font-size: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   Body copy and inline elements
+   -------------------------------------------------------------------------- */
+
+#write p {
+  margin: 0.85em 0;
+}
+
+#write a {
+  color: var(--things-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  -webkit-text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
+}
+
+#write a:hover {
+  color: var(--things-accent-hover);
+  text-decoration-thickness: 2px;
+}
+
+#write a.md-toc-inner {
+  color: var(--things-accent);
+  text-decoration: none;
+}
+
+#write strong {
+  color: var(--things-pink);
+  font-weight: 600;
+}
+
+#write em {
+  color: var(--things-pink);
+  font-style: italic;
+}
+
+#write strong em,
+#write em strong {
+  color: var(--things-pink);
+}
+
+#write del {
+  color: var(--things-text-faint);
+}
+
+#write mark {
+  padding: 0.05em 0.18em;
+  color: var(--things-text);
+  background-color: var(--things-mark);
+  border-radius: 2px;
+}
+
+#write mark strong,
+#write mark em {
+  color: var(--things-text);
+}
+
+#write small {
+  color: var(--things-text-muted);
+}
+
+#write sup,
+#write sub {
+  line-height: 0;
+}
+
+#write .md-meta,
+#write .md-attr {
+  color: var(--things-text-faint);
+}
+
+#write .md-tag {
+  padding: 0.08em 0.48em;
+  font-size: 0.88em;
+  color: var(--things-tag-text);
+  background: var(--things-tag-bg);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   Lists and task lists
+   -------------------------------------------------------------------------- */
+
+#write ul,
+#write ol {
+  margin: 0.9em 0;
+  padding-left: 1.65em;
+}
+
+#write li {
+  margin: 0.32em 0;
+}
+
+#write li > ul,
+#write li > ol {
+  margin: 0.25em 0;
+}
+
+#write ul ul,
+#write ol ul {
+  list-style-type: circle;
+}
+
+#write dl {
+  margin: 1em 0;
+}
+
+#write dt {
+  font-weight: 600;
+}
+
+#write dd {
+  margin: 0.2em 0 0.6em 1.4em;
+  color: var(--things-text-muted);
+}
+
+#write .md-task-list-item {
+  position: relative;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+#write .md-task-list-item > input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 0.3em;
+  margin-left: -1.65em;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 11px 11px;
+  border: 1.5px solid var(--things-checkbox-border);
+  border-radius: 4.5px;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+#write .md-task-list-item > input[type="checkbox"]:hover {
+  border-color: var(--things-accent);
+}
+
+#write .md-task-list-item > input[type="checkbox"]:checked {
+  background-color: var(--things-accent);
+  border-color: var(--things-accent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.6 8.4l2.9 2.9 5.9-6.6' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+#write .md-task-list-item > input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 3px var(--things-selection);
+}
+
+#write .md-task-list-item.task-list-done,
+#write .md-task-list-item[data-task="x"],
+#write .md-task-list-item > input[type="checkbox"]:checked + p {
+  color: var(--things-text-faint);
+}
+
+/* Modern Typora can dim the whole completed row; Chromium 80 ignores this. */
+@supports selector(:has(*)) {
+  #write .md-task-list-item:has(> input[type="checkbox"]:checked) {
+    color: var(--things-text-faint);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Blockquotes
+   -------------------------------------------------------------------------- */
+
+#write blockquote {
+  margin: 1.3em 0;
+  padding: 0.45em 1.1em;
+  font-style: italic;
+  color: var(--things-quote);
+  background: transparent;
+  border-left: 3px solid var(--things-quote-border);
+  border-radius: 0 3px 3px 0;
+}
+
+#write blockquote p {
+  margin: 0.35em 0;
+  color: inherit;
+}
+
+#write blockquote blockquote {
+  margin: 0.7em 0;
+  border-left-color: var(--things-border-strong);
+}
+
+#write blockquote strong,
+#write blockquote em {
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   Code — inline, fences and One Dark syntax
+   -------------------------------------------------------------------------- */
+
+#write code,
+#write tt {
+  padding: 0.14em 0.38em;
+  font-family: var(--things-font-mono);
+  font-size: 0.86em;
+  font-variant-ligatures: contextual;
+  color: var(--things-text);
+  background-color: var(--things-code-inline-bg);
+  border: 0;
+  border-radius: 4px;
+}
+
+#write pre code,
+#write pre tt {
+  padding: 0;
+  font-size: inherit;
+  background: transparent;
+  border-radius: 0;
+}
+
+#write .md-fences,
+#write pre.md-fences {
+  position: relative;
+  margin: 1.4em 0;
+  padding: 0.95em 0 1em;
+  font-family: var(--things-font-mono);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  background-color: var(--things-code-block-bg);
+  border: 1px solid var(--things-code-border);
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+#write .md-fences .CodeMirror,
+#write .md-fences .CodeMirror-scroll {
+  height: auto;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+#write .md-fences .CodeMirror-lines {
+  padding: 0 1.15em;
+}
+
+#write .md-fences .CodeMirror pre {
+  padding: 0;
+}
+
+#write .md-fences .CodeMirror-gutters {
+  background: transparent;
+  border-right: 0;
+}
+
+#write .md-fences .CodeMirror-linenumber {
+  padding-right: 0.8em;
+  color: var(--things-text-faint);
+}
+
+#write .md-fences .CodeMirror-cursor {
+  border-left-color: var(--things-accent);
+}
+
+#write .md-lang {
+  color: var(--things-text-faint);
+  font-family: var(--things-font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
+#write .md-fences .code-tooltip {
+  color: var(--things-text-muted);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+#write .md-htmlblock {
+  background-color: var(--things-code-block-bg);
+  border: 1px solid var(--things-code-border);
+  border-radius: 8px;
+}
+
+/* One Dark syntax, mapped from the Things palette. */
+#write .cm-s-inner .cm-comment,
+#write .cm-s-inner.cm-comment {
+  color: var(--things-atom-comment);
+}
+
+#write .cm-s-inner .cm-keyword,
+#write .cm-s-inner .cm-atom,
+#write .cm-s-inner .cm-builtin {
+  color: var(--things-atom-purple);
+}
+
+#write .cm-s-inner .cm-string,
+#write .cm-s-inner .cm-string-2 {
+  color: var(--things-atom-green);
+}
+
+#write .cm-s-inner .cm-number,
+#write .cm-s-inner .cm-constant {
+  color: var(--things-atom-orange);
+}
+
+#write .cm-s-inner .cm-def,
+#write .cm-s-inner .cm-variable-2,
+#write .cm-s-inner .cm-variable-3 {
+  color: var(--things-atom-blue);
+}
+
+#write .cm-s-inner .cm-variable {
+  color: var(--things-atom-gray-2);
+}
+
+#write .cm-s-inner .cm-property,
+#write .cm-s-inner .cm-attribute {
+  color: var(--things-atom-orange);
+}
+
+#write .cm-s-inner .cm-tag {
+  color: var(--things-atom-red);
+}
+
+#write .cm-s-inner .cm-qualifier,
+#write .cm-s-inner .cm-type,
+#write .cm-s-inner .cm-class {
+  color: var(--things-atom-yellow);
+}
+
+#write .cm-s-inner .cm-operator {
+  color: var(--things-atom-aqua);
+}
+
+#write .cm-s-inner .cm-bracket,
+#write .cm-s-inner .cm-punctuation {
+  color: var(--things-atom-gray-2);
+}
+
+#write .cm-s-inner .cm-meta {
+  color: var(--things-atom-gray-1);
+}
+
+#write .cm-s-inner .cm-link {
+  color: var(--things-atom-blue);
+  text-decoration: underline;
+}
+
+#write .cm-s-inner .cm-error,
+#write .cm-s-inner .cm-invalidchar {
+  color: var(--things-atom-red);
+}
+
+#write .cm-s-inner .CodeMirror-matchingbracket {
+  color: var(--things-accent) !important;
+  font-weight: 600;
+}
+
+#write .cm-s-inner .CodeMirror-nonmatchingbracket {
+  color: var(--things-atom-red) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Tables
+   -------------------------------------------------------------------------- */
+
+#write table {
+  width: 100%;
+  margin: 1.4em 0;
+  font-size: 0.95em;
+  line-height: 1.5;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+#write th {
+  padding: 0.6em 0.9em;
+  font-weight: 600;
+  text-align: left;
+  color: var(--things-text);
+  background-color: var(--things-table-head);
+  border: 1px solid var(--things-border);
+  border-bottom: 2px solid var(--things-border-strong);
+}
+
+#write td {
+  padding: 0.55em 0.9em;
+  vertical-align: top;
+  border: 1px solid var(--things-border);
+}
+
+#write tr:nth-child(2n) td {
+  background-color: var(--things-table-stripe);
+}
+
+#write table code {
+  font-size: 0.86em;
+}
+
+/* --------------------------------------------------------------------------
+   Rules, images, figures and math
+   -------------------------------------------------------------------------- */
+
+#write hr {
+  height: 2px;
+  margin: 2.4em 0;
+  padding: 0;
+  background-color: var(--things-border);
+  border: 0;
+  overflow: hidden;
+}
+
+#write img {
+  max-width: 100%;
+  vertical-align: middle;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#write figure {
+  margin: 1.3em 0;
+}
+
+#write figcaption {
+  margin-top: 0.5em;
+  font-size: 0.82rem;
+  color: var(--things-text-faint);
+  text-align: center;
+}
+
+#write .md-math-block {
+  margin: 1.2em 0;
+  overflow-x: auto;
+}
+
+#write .MathJax_Display {
+  margin: 0.8em 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   TOC, footnotes and YAML front matter
+   -------------------------------------------------------------------------- */
+
+#write .md-toc {
+  margin: 1.4em 0;
+  padding: 1em 1.2em;
+  font-size: 0.9rem;
+  background-color: var(--things-table-stripe);
+  border: 1px solid var(--things-border);
+  border-radius: 8px;
+}
+
+#write .md-toc-content {
+  margin: 0.35em 0;
+}
+
+#write .md-toc-item,
+#write .md-toc-item a {
+  color: var(--things-accent);
+}
+
+#write .md-toc-inner:hover {
+  text-decoration: underline;
+}
+
+#write .md-toc-h1 .md-toc-inner {
+  font-weight: 600;
+}
+
+#write .footnotes {
+  margin-top: 1.8em;
+  padding-top: 0.9em;
+  font-size: 0.88rem;
+  color: var(--things-text-muted);
+  border-top: 1px solid var(--things-border);
+  opacity: 1;
+}
+
+#write .footnotes hr {
+  display: none;
+}
+
+#write .footnote-line {
+  margin-top: 0.55em;
+}
+
+#write sup.md-footnote {
+  padding: 0.05em 0.35em;
+  font-size: 0.72em;
+  color: var(--things-text-muted);
+  background-color: var(--things-code-inline-bg);
+  border-radius: 4px;
+}
+
+#write pre.md-meta-block {
+  margin: 0 0 1.6em;
+  padding: 1em 1.2em;
+  font-family: var(--things-font-mono);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--things-text-muted);
+  background-color: var(--things-code-block-bg);
+  border: 1px solid var(--things-code-border);
+  border-radius: 8px;
+}
+
+#write pre.md-meta-block:empty:before {
+  color: var(--things-text-faint);
+}
+
+/* --------------------------------------------------------------------------
+   Search hits and focus / typewriter modes
+   -------------------------------------------------------------------------- */
+
+#write .md-search-hit {
+  background-color: var(--things-search);
+  border-radius: 2px;
+}
+
+#write .md-search-hit.md-search-select {
+  background-color: var(--things-search);
+  box-shadow: 0 0 0 1px var(--things-accent);
+}
+
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+  color: var(--things-text-faint) !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus) img,
+.on-focus-mode .md-task-list-item:not(.md-focus-container) > input {
+  opacity: 0.25;
+}
+
+.on-focus-mode .md-focus,
+.on-focus-mode .md-focus-container {
+  color: var(--things-text);
+}
+
+.on-focus-mode blockquote {
+  border-left-color: var(--things-quote-border);
+}
+
+/* --------------------------------------------------------------------------
+   Typora window chrome — sidebar, menus, search, quick open
+   -------------------------------------------------------------------------- */
+
+#typora-sidebar {
+  font-family: var(--things-font-text);
+  color: var(--things-text-muted);
+  background-color: var(--things-sidebar-bg);
+  border-right: 1px solid var(--things-border);
+}
+
+.sidebar-tabs {
+  background: transparent;
+  border-bottom: 1px solid var(--things-border);
+}
+
+.sidebar-tab {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--things-text-faint);
+  text-transform: none;
+}
+
+.sidebar-tab.active {
+  color: var(--things-text);
+  box-shadow: inset 0 -2px 0 var(--things-accent);
+}
+
+#typora-sidebar .file-node-content {
+  color: var(--things-text-muted);
+}
+
+#typora-sidebar .file-node-content:hover {
+  color: var(--things-text);
+}
+
+#typora-sidebar .file-tree-node.active > .file-node-background {
+  background-color: var(--things-active);
+  border-left: 3px solid var(--things-accent);
+}
+
+#typora-sidebar .file-tree-node.active > .file-node-content {
+  color: var(--things-text);
+}
+
+#typora-sidebar .file-list-item {
+  border-bottom: 1px solid var(--things-border);
+}
+
+#typora-sidebar .file-list-item.active {
+  background-color: var(--things-active);
+  color: var(--things-text);
+}
+
+#typora-sidebar .file-list-item-file-name {
+  font-weight: 600;
+}
+
+#typora-sidebar .file-list-item-summary,
+#typora-sidebar .file-list-item-parent-loc,
+#typora-sidebar .file-list-item-time {
+  color: var(--things-text-faint);
+}
+
+#typora-sidebar .outline-item:hover {
+  background-color: var(--things-hover);
+}
+
+#typora-sidebar .outline-active,
+#typora-sidebar .outline-active strong {
+  color: var(--things-accent);
+  font-weight: 600;
+}
+
+#typora-sidebar .sidebar-footer {
+  border-top: 1px solid var(--things-border);
+}
+
+#typora-sidebar .sidebar-footer-item:hover {
+  background-color: var(--things-hover);
+  color: var(--things-text);
+}
+
+#md-searchpanel {
+  background-color: var(--things-sidebar-bg);
+  border-bottom: 1px solid var(--things-border);
+}
+
+#md-searchpanel input {
+  color: var(--things-text);
+  background-color: var(--things-bg);
+  border: 1px solid var(--things-border);
+  border-radius: 6px;
+}
+
+#md-searchpanel input:focus {
+  border-color: var(--things-accent);
+  box-shadow: 0 0 0 3px var(--things-selection);
+}
+
+#top-titlebar {
+  background-color: var(--things-bg);
+  color: var(--things-text);
+}
+
+#top-titlebar .toolbar-icon.btn:hover {
+  background-color: var(--things-hover);
+  color: var(--things-text);
+}
+
+.dropdown-menu,
+.context-menu,
+.megamenu-content {
+  color: var(--things-text);
+  background-color: var(--things-menu-bg);
+  border-color: var(--things-border);
+}
+
+.dropdown-menu > li > a {
+  color: var(--things-text);
+  background-image: none;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  color: var(--things-text);
+  background-color: var(--things-hover);
+  background-image: none;
+}
+
+.dropdown-menu .divider {
+  background-color: var(--things-border);
+}
+
+#typora-quick-open {
+  color: var(--things-text);
+  background-color: var(--things-menu-bg);
+  border: 1px solid var(--things-border);
+  border-radius: 10px;
+  box-shadow: var(--things-shadow-m);
+}
+
+#typora-quick-open-input input {
+  color: var(--things-text);
+  background-color: var(--things-bg);
+  border: 1px solid var(--things-border);
+  border-radius: 6px;
+}
+
+.typora-quick-open-item.active {
+  color: var(--things-text);
+  background-color: var(--things-active);
+}
+
+.modal-content {
+  color: var(--things-text);
+  background-color: var(--things-bg);
+  border: 1px solid var(--things-border);
+  border-radius: 12px;
+  box-shadow: var(--things-shadow-m);
+}
+
+.modal-header,
+.modal-footer {
+  border-color: var(--things-border);
+}
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.32);
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: var(--things-accent);
+  border-color: var(--things-accent);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  color: #ffffff;
+  background-color: var(--things-accent-hover);
+  border-color: var(--things-accent-hover);
+}
+
+.btn-default {
+  color: var(--things-text);
+  background-color: var(--things-bg);
+  border-color: var(--things-border);
+}
+
+.btn-default:hover,
+.btn-default:focus {
+  color: var(--things-text);
+  background-color: var(--things-hover);
+  border-color: var(--things-border-strong);
+}
+
+/* --------------------------------------------------------------------------
+   Source mode
+   -------------------------------------------------------------------------- */
+
+#typora-source,
+#typora-source .CodeMirror {
+  font-family: var(--things-font-mono);
+  font-size: 0.9rem;
+  color: var(--things-text);
+  background-color: var(--things-bg);
+}
+
+#typora-source .CodeMirror-cursor {
+  border-left-color: var(--things-accent);
+}
+
+#typora-source .cm-s-typora-default .cm-header {
+  color: var(--things-text);
+  font-weight: 700;
+}
+
+#typora-source .cm-s-typora-default .cm-strong {
+  color: var(--things-pink);
+  font-weight: 600;
+}
+
+#typora-source .cm-s-typora-default .cm-em {
+  color: var(--things-pink);
+  font-style: italic;
+}
+
+#typora-source .cm-s-typora-default .cm-link,
+#typora-source .cm-s-typora-default .cm-variable-2 {
+  color: var(--things-accent);
+}
+
+#typora-source .cm-s-typora-default .cm-url,
+#typora-source .cm-s-typora-default .cm-comment {
+  color: var(--things-text-formatted);
+}
+
+#typora-source .cm-s-typora-default .cm-quote {
+  color: var(--things-quote);
+}
+
+#typora-source .cm-s-typora-default .cm-string {
+  color: var(--things-atom-green);
+}
+
+#typora-source .cm-s-typora-default .cm-number {
+  color: var(--things-atom-orange);
+}
+
+/* --------------------------------------------------------------------------
+   Scrollbars
+   -------------------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--things-scrollbar);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--things-scrollbar-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   Print / PDF export
+   Things in Obsidian prints light, and so does this port. The whole token set
+   is restated so a PDF exported from the dark theme stays readable.
+   -------------------------------------------------------------------------- */
+
+@media print {
+  :root {
+    color-scheme: light;
+
+    --things-bg: #ffffff;
+    --things-sidebar-bg: #ffffff;
+    --things-menu-bg: #ffffff;
+    --things-hover: #f2f3f5;
+    --things-active: #e8eaee;
+    --things-border: #ebedf0;
+    --things-border-strong: #d8dde3;
+    --things-scrollbar: rgba(34, 34, 34, 0.16);
+    --things-scrollbar-hover: rgba(34, 34, 34, 0.28);
+
+    --things-text: #222222;
+    --things-text-muted: #555e68;
+    --things-text-faint: #8d959e;
+    --things-text-formatted: #949da8;
+
+    --things-accent: #4c8ce6;
+    --things-accent-hover: #2f7fdd;
+
+    --things-code-inline-bg: #eceef1;
+    --things-code-block-bg: #f0f2f5;
+    --things-code-border: #e3e7ec;
+    --things-table-stripe: #f8f9fa;
+    --things-table-head: #f6f7f8;
+    --things-quote: #3eb4bf;
+    --things-quote-border: rgba(62, 180, 191, 0.45);
+    --things-checkbox-border: #b7bec7;
+    --things-mark: rgba(255, 208, 0, 0.4);
+    --things-selection: rgba(76, 140, 230, 0.25);
+    --things-search: rgba(255, 208, 0, 0.5);
+    --things-tag-bg: #bde1d3;
+    --things-tag-text: #1d694b;
+
+    --things-shadow-s: none;
+    --things-shadow-m: none;
+
+    --things-atom-comment: #8a9099;
+    --things-atom-gray-1: #383a42;
+    --things-atom-gray-2: #383a42;
+    --things-atom-red: #e75545;
+    --things-atom-green: #4ea24c;
+    --things-atom-blue: #3d74f6;
+    --things-atom-purple: #a625a4;
+    --things-atom-aqua: #0084bc;
+    --things-atom-yellow: #e35649;
+    --things-atom-orange: #986800;
+  }
+
+  html,
+  body,
+  content {
+    background: #ffffff !important;
+    color: #222222 !important;
+  }
+
+  html,
+  body,
+  #write,
+  #write * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  #write,
+  body.typora-export #write {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+
+  #write h1,
+  #write h2,
+  #write h3,
+  #write h4,
+  #write h5,
+  #write h6 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  #write pre,
+  #write table,
+  #write img,
+  #write blockquote,
+  #write figure {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  #write img {
+    box-shadow: none;
+  }
+
+  #write .md-fences {
+    background-color: #f0f2f5 !important;
+    border: 1px solid #e3e7ec !important;
+  }
+
+  #write a {
+    color: #2e80f2;
+  }
+}

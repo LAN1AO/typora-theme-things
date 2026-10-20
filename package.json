@@ -1,0 +1,11 @@
+{
+  "name": "typora-things-theme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Typora port of the Things theme for Obsidian, in light and dark.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "license": "MIT"
+}

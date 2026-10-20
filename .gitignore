@@ -1,0 +1,11 @@
+# Local render/verification artifacts
+.chrome-profile-*/
+upstream/
+*.pdf
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
