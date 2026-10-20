@@ -14,7 +14,7 @@
 - **Things 标题体系**：H1/H2 使用正文色，H2 带下划线，H3 蓝色，H4 琥珀色大写，H5 红色，H6 灰色大写。
 - **正文强调**：粗体与斜体使用 Things 粉色 `#ff82b2`，引用使用青色 `#3eb4bf` 并带左侧竖线。
 - **One Dark 代码**：行内代码、代码块和语法高亮分别处理；等宽字体优先使用内置的 JetBrains Mono。
-- **正文宽度**：默认占编辑区（不含侧边栏）的 70%，由 `--things-content-width` 控制。
+- **正文宽度**：默认占 Typora 窗口宽度的 70%（`70vw`，侧边栏打开时也是按整个窗口算），由 `--things-content-width` 控制。
 - **Typora 细节**：任务复选框、标签胶囊、图片卡片、表格斑马纹、脚注、TOC、YAML front matter、搜索高亮、专注模式、侧边栏与菜单配色。
 - **打印友好**：从深色主题导出 PDF 时自动切换为浅色页面，代码块与表格背景会保留。
 - **无依赖**：主题是纯 CSS；内置字体只是可选项，不复制 `things/` 文件夹也能正常工作。
@@ -67,7 +67,7 @@ Typora 和 Obsidian 的渲染结构不同，因此这不是像素级复刻：
   --things-pink: #ff82b2;     /* 粗体、斜体 */
   --things-quote: #3eb4bf;    /* 引用文字 */
   --things-code-block-bg: #f0f2f5;
-  --things-content-width: 70%; /* 正文宽度（相对编辑区） */
+  --things-content-width: 70vw; /* 正文宽度（相对整个窗口） */
   --things-font-text: ...;
 }
 ```
@@ -80,7 +80,7 @@ node build.mjs
 
 不要直接改 `themes/*.css` 后再运行构建，构建会覆盖它们。
 
-> `--things-content-width: 70%` 是相对 Typora 的编辑区（窗口减去侧边栏）计算的。如果你希望严格按整个窗口宽度计算，可以改成 `70vw`；窄窗口和打印时仍会自动回退到可读宽度。
+> `--things-content-width: 70vw` 以整个 Typora 窗口为基准；如果你更想按编辑区（窗口减去侧边栏）计算，把它改成 `70%`。窄窗口和打印时仍会自动回退到可读宽度。
 
 ## 目录结构
 

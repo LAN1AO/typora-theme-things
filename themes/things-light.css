@@ -89,8 +89,9 @@
     "SFMono-Regular", Menlo, Consolas, "Liberation Mono", "Courier New",
     monospace;
 
-  /* Writing column: 70% of the editor area (the sidebar is outside #write). */
-  --things-content-width: 70%;
+  /* Writing column: 70% of the whole Typora window. max-width:100% keeps it
+     inside the editor pane when the sidebar is open or the window is narrow. */
+  --things-content-width: 70vw;
 
   /* Typora application variables */
   --bg-color: var(--things-bg);
@@ -202,7 +203,7 @@ content {
 
 #write {
   width: var(--things-content-width);
-  max-width: none;
+  max-width: 100%;
   margin: 0 auto;
   padding: 48px 60px 120px;
   font-family: var(--things-font-text);

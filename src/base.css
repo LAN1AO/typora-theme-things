@@ -68,7 +68,7 @@ content {
 
 #write {
   width: var(--things-content-width);
-  max-width: none;
+  max-width: 100%;
   margin: 0 auto;
   padding: 48px 60px 120px;
   font-family: var(--things-font-text);
