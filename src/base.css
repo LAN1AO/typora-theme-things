@@ -67,8 +67,7 @@ content {
 }
 
 #write {
-  width: var(--things-content-width);
-  max-width: 100%;
+  max-width: var(--things-content-max-width);
   margin: 0 auto;
   padding: 48px 60px 120px;
   font-family: var(--things-font-text);
@@ -85,24 +84,8 @@ content {
 
 @media screen and (max-width: 760px) {
   #write {
-    width: auto;
     padding: 28px 24px 80px;
   }
-}
-
-/* Typora centers #write inside the editor pane, not the whole window. When the
-   outline sidebar is pinned, shift the column left by half the sidebar width so
-   it is centered in the window too. The shift never exceeds the available
-   margin, so the text cannot slide under the sidebar on narrow windows. */
-html.pin-outline #write,
-body.pin-outline #write {
-  left: calc(
-    -1 *
-      min(
-        calc(var(--sidebar-width) / 2),
-        max(0px, calc((100% - var(--things-content-width)) / 2))
-      )
-  );
 }
 
 /* --------------------------------------------------------------------------

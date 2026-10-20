@@ -76,9 +76,9 @@
     "SFMono-Regular", Menlo, Consolas, "Liberation Mono", "Courier New",
     monospace;
 
-  /* Writing column: 70% of the whole Typora window. max-width:100% keeps it
-     inside the editor pane when the sidebar is open or the window is narrow. */
-  --things-content-width: 70vw;
+  /* Writing column: fixed maximum width, centered by Typora. 860px leaves
+     740px of text after the 60px side paddings (the first release used 760px). */
+  --things-content-max-width: 860px;
 
   /* Typora application variables */
   --bg-color: var(--things-bg);
